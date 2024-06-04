@@ -89,10 +89,10 @@
 			<div class="mx-auto container mt-4 <?php if ( is_front_page() ) { echo "text-white"; } else { echo "text-black";  } ?> ">
 				<div class="grid grid-cols-3">
 					<div class="flex items-center">
-						<div class="mr-4">
+						<!-- <div class="mr-4"> -->
 							<!-- <a href="#" aria-label="Toggle navigation" id="primary-menu-toggle" class="rounded-full border border-2 <?php if ( is_front_page() ) { echo "border-white"; } else { echo "border-black";  } ?> p-3"> -->
-							<a href="#" id="hamburger" class="rounded-full border border-2 <?php if ( is_front_page() ) { echo "border-white"; } else { echo "border-black";  } ?> p-3">
-								<i class="fas fa-bars text-2xl"></i>
+							<!-- <a href="#" id="hamburger" class="rounded-full border border-2 <?php if ( is_front_page() ) { echo "border-white"; } else { echo "border-black";  } ?> p-3">
+								<i class="fas fa-bars text-2xl"></i> -->
 
 								<!-- <svg viewBox="0 0 20 20" class="inline-block w-6 h-6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 									<g stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
@@ -101,8 +101,8 @@
 										</g>
 									</g>
 								</svg> -->
-							</a>
-						</div>
+							<!-- </a>
+						</div> -->
 						
 
 						<?php
