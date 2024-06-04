@@ -11,6 +11,7 @@ jobs:
     - name: GitHub Action Deploy to WP Engine
       uses: wpengine/github-action-wpe-site-deploy@v3
       with:
+        skipInstall: true
         WPE_SSHG_KEY_PRIVATE: ${{ secrets.SSH_DZG_PRIVATE_KEY }} 
         WPE_ENV: yantradev
         # Deploy Options
