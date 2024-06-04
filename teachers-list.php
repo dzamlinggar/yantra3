@@ -7,8 +7,10 @@
         // $authors = get_users(array('who' => 'authors'));
         $teachers = get_users(array('role' => 'teacher'));
         foreach ($teachers as $teacher) :
+            // $teacherUrl = "/teacher/" . $teacher->slug;
+            $teacherUrl = get_author_posts_url($teacher->ID);
         ?>
-            <div class="author-card p-4 text-center">
+            <div class="author-card p-4 text-center cursor-pointer" onclick="window.location.href='<?php echo $teacherUrl; ?>';">
                 <!-- <img src="<?php echo pods_image_url($teacher->profile_picture, 'large'); ?>" alt="author profile image" class="w-40 h-40 rounded-full -mt-20 object-cover object-center border-4 border-white" /> -->
                 <div class="w-full" style="padding-top: 100%; position: relative;">
                     <div class="absolute top-0 left-0 w-full h-full rounded-full overflow-hidden" style="background-image: url('<?php echo pods_image_url($teacher->profile_picture, 'large'); ?>'); background-size: cover; background-position: center;"></div>
