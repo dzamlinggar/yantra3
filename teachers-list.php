@@ -23,7 +23,6 @@
                     <?php  if ($teacher->level != "None") {
                         echo str_replace("Teacher", "", $teacher->level);
                     }?>
-                    <?php echo $teacher->ID; ?>
                 </span>
             </div>
         <?php endforeach; ?>
