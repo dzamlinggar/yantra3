@@ -1,0 +1,94 @@
+.max-w-none{
+    max-width: none !important;
+}
+
+article > *:not(.entry-content),
+.entry-content > * {
+    @apply mx-auto max-w-content;
+}
+
+.entry-content, .block-editor-block-list__layout {
+    h1 {
+        @apply text-2xl;
+    }
+
+    h2 {
+        @apply text-xl;
+    }
+
+    h3 {
+        @apply text-lg;
+    }
+
+    p, ul, ol {
+        a {
+            @apply text-blue-500 underline;
+
+            &:hover {
+                @apply no-underline;
+            }
+        }
+
+        @apply mb-8;
+    }
+
+    ul:not(.block-editor-block-variation-picker__variations) {
+        li {
+            @apply list-disc list-inside;
+        }
+    }
+
+    ol {
+        li {
+            @apply list-decimal list-inside;
+        }
+    }
+}
+
+/* Buttons */
+.btn {
+  @apply font-bold py-2 px-4;
+}
+.btn-green {
+  @apply bg-terciary text-white;
+}
+.btn-green:hover {
+  @apply bg-teal-700;
+}
+
+/* .childs ul:first-of-type li {
+    display: none;
+} */
+
+.childs ul > li:not(.sub-menu) {
+    
+}
+
+/* .childs ul > li:not(.sub-menu) > a {
+    height: 1px;
+    overflow: hidden;
+    padding-top:1px;
+} */
+
+.childs ul:not(.sub-menu) > li > a {
+    display: none;
+}
+.childs ul.sub-menu {
+    display: none;
+}
+#secondary-menu ul  {
+    padding-left: 20px;
+}
+#secondary-menu ul > li {
+    padding: 10px;
+} 
+.childs ul.sub-menu > li {
+    display: block;
+    padding: 10px;
+}
+
+
+
+/* .childs ul.sub-menu > li > a {
+    display: block;
+} */
