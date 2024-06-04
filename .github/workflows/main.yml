@@ -19,3 +19,5 @@ jobs:
         # FLAGS: -azvr --inplace --delete --exclude=".*" --exclude-from=.deployignore
         # SCRIPT: "path/yourscript.sh"
         CACHE_CLEAR: TRUE
+    - name: Run npm production
+      run: npm run production
