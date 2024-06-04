@@ -175,3 +175,64 @@ function create_about_yy_post_type() {
 add_action('init', 'create_about_yy_post_type');
 
 add_filter('wp_is_application_passwords_available', '__return_false');
+
+function add_custom_user_role() {
+
+	$capabilities = array(
+		'read'                   => true,  // Leggere i contenuti
+		'edit_posts'             => true, // Modificare i propri articoli
+		'delete_posts'           => false, // Eliminare i propri articoli
+		'publish_posts'          => true, // Pubblicare i propri articoli
+		'upload_files'           => true, // Caricare file multimediali
+		'edit_others_posts'      => false, // Modificare gli articoli degli altri utenti
+		'delete_others_posts'    => false, // Eliminare gli articoli degli altri utenti
+		'edit_published_posts'   => true, // Modificare gli articoli pubblicati
+		'delete_published_posts' => false, // Eliminare gli articoli pubblicati
+		'manage_categories'      => false, // Gestire le categorie
+		'manage_links'           => false, // Gestire i collegamenti
+		'moderate_comments'      => false, // Moderare i commenti
+		'unfiltered_html'        => false, // Inserire HTML non filtrato
+		'edit_files'             => false, // Modificare i file del tema/plugin
+		'edit_pages'             => false, // Modificare le pagine
+		'read_private_pages'     => false, // Leggere le pagine private
+		'edit_private_pages'     => false, // Modificare le pagine private
+		'delete_private_pages'   => false, // Eliminare le pagine private
+		'read_private_posts'     => false, // Leggere gli articoli privati
+		'edit_private_posts'     => false, // Modificare gli articoli privati
+		'delete_private_posts'   => false, // Eliminare gli articoli privati
+		'edit_published_pages'   => false, // Modificare le pagine pubblicate
+		'delete_published_pages' => false, // Eliminare le pagine pubblicate
+		'delete_pages'           => false, // Eliminare le pagine
+		'delete_others_pages'    => false, // Eliminare le pagine di altri utenti
+		'delete_published_pages' => false, // Eliminare le pagine pubblicate
+		'delete_private_pages'   => false, // Eliminare le pagine private
+		'edit_others_pages'      => false, // Modificare le pagine degli altri utenti
+		'edit_published_pages'   => false, // Modificare le pagine pubblicate
+		'edit_theme_options'     => false, // Modificare le opzioni del tema
+		'export'                 => false, // Esportare dati
+		'import'                 => false, // Importare dati
+		'install_plugins'        => false, // Installare plugin
+		'install_themes'         => false, // Installare temi
+		'manage_options'         => false, // Gestire le opzioni
+		'publish_pages'          => false, // Pubblicare le pagine
+		'publish_posts'          => false, // Pubblicare gli articoli
+		'read'                   => false, // Leggere
+		'read_private_pages'     => false, // Leggere le pagine private
+		'read_private_posts'     => false, // Leggere gli articoli privati
+		'switch_themes'          => false, // Cambiare tema
+		'update_core'            => false, // Aggiornare il core di WordPress
+		'update_plugins'         => false, // Aggiornare i plugin
+		'update_themes'          => false, // Aggiornare i temi
+		'upload_plugins'         => false, // Caricare plugin
+		'upload_themes'          => false, // Caricare temi
+		// Aggiungi altre capacità personalizzate qui...
+	);
+
+	
+    add_role(
+        'teacher', // Identificatore del ruolo
+        'Teacher', // Nome visualizzato del ruolo
+        $capabilities
+    );
+}
+add_action('init', 'add_custom_user_role');
