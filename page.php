@@ -34,3 +34,6 @@ the_post_thumbnail('full', ['class' => 'w-full max-w-full']);
     );
     ?>
 </div>
+
+
+<?php get_footer();
