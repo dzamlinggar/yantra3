@@ -4,6 +4,11 @@
 $background_image_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : get_template_directory_uri() . "/images/teachers-bg.jpg"; 
 $fabio_img_url = get_template_directory_uri() . "/images/fabio.png";
 $laura_img_url = get_template_directory_uri() . "/images/laura.png";
+$fabio_id = 91;
+$laura_id = 92;
+
+$fabioUrl = get_author_posts_url($fabio_id);
+$lauraUrl = get_author_posts_url($laura_id);
 ?>
 <div class="w-full bg-cover bg-center p-5 mt-10" style="background-image: url('<?php echo esc_url($background_image_url); ?>');">
     <div class="container mx-auto pt-5 px-2 pb-10">
@@ -21,12 +26,12 @@ $laura_img_url = get_template_directory_uri() . "/images/laura.png";
     
     <div class="w-full flex items-center ">
         <div class="container mx-auto pb-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="flex flex-col items-center justify-center text-center text-teachers">
+            <div class="flex flex-col items-center justify-center text-center text-teachers cursor-pointer" onclick="window.location.href='<?php echo $lauraUrl; ?>';">
                 <img src="<?php echo $laura_img_url; ?>" alt="Laura" class="w-1/2 h-auto object-cover mb-4 rounded-full">
                 <h2 class="text-2xl font-bold mb-2">Laura Evangelisti</h2>
                 <p>Senior Teacher</p>
             </div>
-            <div class="flex flex-col items-center justify-center text-center text-teachers">
+            <div class="flex flex-col items-center justify-center text-center text-teachers cursor-pointer" onclick="window.location.href='<?php echo $fabioUrl; ?>';">
                 <img src="<?php echo $fabio_img_url; ?>" alt="Fabio" class="w-1/2 h-auto object-cover mb-4 rounded-full">
                 <h2 class="text-2xl font-bold mb-2">Fabio Andrico</h2>
                 <p>Senior Teacher</p>
