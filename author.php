@@ -4,6 +4,7 @@
 $curauth = (get_query_var('author_name')) ? get_user_by('slug', get_query_var('author_name')) : get_userdata(get_query_var('author'));
 $user = get_userdata($curauth->ID);
 $pod = pods();
+$bg_cover_image=get_template_directory_uri() . "/images/bg-single-teacher.png"
 ?>
 
 <article id="post-<?php echo $user->ID ?>">
@@ -23,7 +24,7 @@ $pod = pods();
 		</div>
 	</div>
 	<div class="max-w-none mt-10">
-		<img src="<?php echo pods_image_url($curauth->cover_image, 'large'); ?>" alt="author background image" class="w-full h-96 object-cover object-center" />
+		<img src="<?php echo $bg_cover_image; ?>" alt="author background image" class="w-full h-96 object-cover object-center" />
 	</div>
 	<div class="grid grid-cols-3 gap-10">
 		<div class="col-span-2">
