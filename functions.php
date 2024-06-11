@@ -236,3 +236,97 @@ function add_custom_user_role() {
     );
 }
 add_action('init', 'add_custom_user_role');
+
+
+function get_recent_posts_markup($config = array()) {
+    $defaults = array(
+		'post_type' => 'post',
+        'post_status' => 'publish',
+        'posts_per_page' => 3,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        // Altre impostazioni predefinite, se necessario
+    );
+
+    $args = array_merge($defaults, $config);
+
+    $markup = '';
+
+    $markup .= '<div class="container mx-auto py-10 px-4">';
+    $markup .= '<div class="grid grid-cols-1 md:grid-cols-3 gap-4">';
+
+    $recent_posts = new WP_Query($args);
+
+    if ($recent_posts->have_posts()) {
+        while ($recent_posts->have_posts()) {
+            $recent_posts->the_post();
+
+            $markup .= '<div class="flex flex-col bg-gray-100 rounded-lg overflow-hidden">';
+            $markup .= '<a href="' . get_the_permalink() . '" class="block">';
+
+			$post_id = get_the_ID(); // get the current post ID
+			if (has_post_thumbnail($post_id)) { // check if the post has a thumbnail
+				$thumbnail_url = get_the_post_thumbnail_url($post_id); // get the thumbnail URL
+			} else {
+				$thumbnail_url = ''; // set a default value if there's no thumbnail
+			}
+
+			if (has_post_thumbnail()) {
+                $markup .= '<img src="' . $thumbnail_url . '" alt="' . get_the_title() . '" class="w-full h-auto" />';
+            }
+
+            $markup .= '</a>';
+            $markup .= '<div class="p-4">';
+            $markup .= '<a href="' . get_the_permalink() . '" class="block text-cyan-300 mt-3 mb-3">' . get_the_title() . '</a>';
+            $markup .= '<p class="text-gray-500">' . wp_trim_words(get_the_excerpt(), 15, '...') . '</p>';
+            $markup .= '</div>';
+            $markup .= '</div>';
+        }
+
+        wp_reset_postdata();
+    } else {
+        $markup .= 'No posts found';
+    }
+
+    $markup .= '</div>';
+    $markup .= '</div>';
+
+    return $markup;
+}
+
+
+function add_featured_page_meta_box() {
+    add_meta_box(
+        'featured_page_meta_box',
+        'Featured Page',
+        'render_featured_page_meta_box',
+        'page',
+        'side',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'add_featured_page_meta_box' );
+
+function render_featured_page_meta_box( $post ) {
+    $featured = get_post_meta( $post->ID, '_featured_page', true );
+    wp_nonce_field( 'featured_page_nonce', 'featured_page_nonce' );
+    ?>
+    <label for="featured_page_checkbox">
+        <input type="checkbox" id="featured_page_checkbox" name="featured_page_checkbox" value="1" <?php checked( $featured, '1' ); ?> />
+        Mark as Featured Page
+    </label>
+    <?php
+}
+
+function save_featured_page_meta_box( $post_id ) {
+    if ( ! isset( $_POST['featured_page_nonce'] ) || ! wp_verify_nonce( $_POST['featured_page_nonce'], 'featured_page_nonce' ) ) {
+        return;
+    }
+
+    if ( isset( $_POST['featured_page_checkbox'] ) ) {
+        update_post_meta( $post_id, '_featured_page', '1' );
+    } else {
+        delete_post_meta( $post_id, '_featured_page' );
+    }
+}
+add_action( 'save_post', 'save_featured_page_meta_box' );

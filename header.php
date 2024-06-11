@@ -87,8 +87,8 @@
 
 		<header>
 			<div class="mx-auto container mt-4 <?php if ( is_front_page() ) { echo "text-white"; } else { echo "text-black";  } ?> ">
-				<div class="grid grid-cols-3">
-					<div class="flex items-center">
+				<div class="grid grid-cols-1 lg:grid-cols-3">
+					<div class="flex items-center w-100 mx-auto mb-3">
 						<!-- <div class="mr-4"> -->
 							<!-- <a href="#" aria-label="Toggle navigation" id="primary-menu-toggle" class="rounded-full border border-2 <?php if ( is_front_page() ) { echo "border-white"; } else { echo "border-black";  } ?> p-3"> -->
 							<!-- <a href="#" id="hamburger" class="rounded-full border border-2 <?php if ( is_front_page() ) { echo "border-white"; } else { echo "border-black";  } ?> p-3">
@@ -109,10 +109,10 @@
 						wp_nav_menu(
 							array(
 								'container_id'    => 'primary-menu',
-								'container_class' => 'hidden mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block',
+								'container_class' => 'mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent block w-100',
 								'menu_class'      => 'lg:flex lg:-mx-4',
 								'theme_location'  => 'primary',
-								'li_class'        => 'lg:mx-2',
+								'li_class'        => 'lg:mx-2 inline-block w-100',
 								'fallback_cb'     => false,
 							)
 						);

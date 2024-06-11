@@ -90,57 +90,9 @@ endif;
 </div>
 
 
-
-<div class="container mx-auto py-10 px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <?php
-        // $args = array(
-        //     'posts_per_page' => 3,
-        //     'post_status' => 'publish',
-        // );
-        $args = array(
-            'post_status' => 'publish',
-            'posts_per_page' => 3,  // Limita il numero di post a 3
-            'orderby' => 'date',    // Ordina per data
-            'order' => 'DESC',      // Ordine discendente
-
-            // Take only Custome from specific CATEGORY
-            // 'category_name' => 'catagory_name',
-
-            // Take only Custome with specific TAG
-            // 'tax_query' => array(
-            //     array(
-            //         'taxonomy' => 'taxonomy_name',
-            //         'field' => 'slug',
-            //         'terms' => 'tag_name',
-            //     ),
-            // ),
-        );
-        $recent_posts = new WP_Query($args);
-        if ($recent_posts->have_posts()) :
-            while ($recent_posts->have_posts()) : $recent_posts->the_post();
-        ?>
-                <div class="flex flex-col bg-gray-100 rounded-lg overflow-hidden">
-                    <a href="<?php the_permalink(); ?>" class="block">
-                        <?php if (has_post_thumbnail()) : ?>
-                            <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-auto" />
-                        <?php endif; ?>
-                    </a>
-                    <div class="p-4">
-                        <a href="<?php the_permalink(); ?>" class="text-xl font-bold text-black"><?php the_title(); ?></a>
-                        <p class="text-gray-700"><?php echo wp_trim_words(get_the_excerpt(), 15, '...'); ?></p>
-                    </div>
-                </div>
-        <?php
-            endwhile;
-            wp_reset_postdata();
-        else :
-            echo 'No posts found';
-        endif;
-        ?>
-    </div>
-</div>
-
+<?php
+    echo get_recent_posts_markup();
+?>
 
 
 <?php
