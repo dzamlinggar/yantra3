@@ -1,10 +1,6 @@
 <?php get_header(); 
-
-
 // $background_image_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : get_template_directory_uri() . "/images/bg-single-teacher.png"; 
-
 $background_image_url = get_template_directory_uri() . "/images/bg-single-teacher.png";
-
 
 ?>
 
