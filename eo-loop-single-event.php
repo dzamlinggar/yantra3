@@ -46,7 +46,10 @@
 				<?php 
 					echo eo_get_event_meta_list();
 				?>
+
+				<div class="mb-4"><?php the_content(); ?></div>
 			</p>
+
             </div>
             </div>
 </article>
