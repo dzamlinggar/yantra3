@@ -49,7 +49,7 @@ if ($about_yantrayoga_posts->have_posts()) :
             <div class="text-center mb-10">
                 <div class="mb-4 pt-5">
                     <?php //the_post_thumbnail('full', ['class' => 'inline-block max-w-full h-auto']); ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/drop.png" alt="<?php the_title(); ?>" class="inline-block max-w-full h-auto">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/drop.png" alt="<?php the_title(); ?>" class="inline-block w-10 h-auto">
                 </div>
                 <h2 class="text-3xl text-black"><?php the_title(); ?></h2>
                 <div class="mb-4  p-5"><?php the_content(); ?></div>
