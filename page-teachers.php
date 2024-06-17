@@ -17,7 +17,7 @@ $lauraUrl = get_author_posts_url($laura_id);
                 <h2 class="text-5xl text-teachers text-center mb-3"><?php the_title(); ?></h2>
             </div>
             <div class="text-center text-teachers p-10">
-                <p class="text-lg text-teachers">
+                <p class="text-2xl text-teachers">
                     <?php the_content(); ?>
                 </p>
             </div>
