@@ -330,3 +330,5 @@ function save_featured_page_meta_box( $post_id ) {
     }
 }
 add_action( 'save_post', 'save_featured_page_meta_box' );
+
+add_theme_support('event-organiser'); 
